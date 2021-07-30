@@ -1,0 +1,22 @@
+.contact-container{
+    border: 1px solid #edce00;
+    width: 60%;
+    margin: 4% auto;
+    padding: 4%;
+    box-sizing: border-box;
+    display: block;
+    height: unset;
+    color: white;
+}
+.contact-container label{
+    color: #ec0e85;
+    text-decoration: none;
+    cursor: pointer;
+}
+.contact-container p{
+    font-size: 20px;
+}
+.contact-container h2{
+    font-size:xx-large;
+    margin-bottom: 2%;
+}

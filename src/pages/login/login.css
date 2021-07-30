@@ -1,0 +1,10 @@
+article{
+    display: flex;
+    height: 100%;
+}
+section{
+    height: 100%;
+}
+article section img{
+    height: 100%;
+}

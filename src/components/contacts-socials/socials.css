@@ -1,0 +1,13 @@
+.link-container{
+    color: #ec0e85;
+    text-decoration: none;
+    cursor: pointer;
+}
+.link-container{
+    display: flex;
+    align-items: flex-end;
+    width:10%;
+}
+.link-container > span{
+    margin-left: 5%;
+}
