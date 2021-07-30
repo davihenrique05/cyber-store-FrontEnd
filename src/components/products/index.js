@@ -1,17 +1,16 @@
 import './products.css';
 
-const Products = (props)=>{
+const Products = (props) => {
     const productContainerClass = "product-container";
-    
+    console.log("rendered");
     return (
-        <main>        
+        <main>
             <h2>Welcome</h2>
-            <div className= {productContainerClass}>
-                {console.log(props.list)}
-                {props.list.map((item, index)=>{
-                    return(
-                        <article id={index} className="product">
-                            <img src= {item.image} className="product-img" alt="produto"/>
+            <div className={productContainerClass}>
+                {props.list.map((item, index) => {
+                    return (
+                        <article key={index} className="product">
+                            <img src={item.image} className="product-img" alt="produto" />
 
                             <div className="product-content">
                                 <h2>{item.title}</h2>

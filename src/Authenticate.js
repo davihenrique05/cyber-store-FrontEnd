@@ -1,28 +1,40 @@
 import './standart.css';
 import LoginPage from "./pages/login/login";
-import { useState } from 'react';
-import logar from "./apis/logUser";
+import { useEffect, useState } from 'react';
+import { logar, validateToken } from "./apis/logUser";
 import App from './App';
 
-function Authenticate(){
-    const token = sessionStorage.getItem('cyber/token');
+function Authenticate() {
+    const [logged, setLogged] = useState(false);
+    const [tokenValidated, setTokenValidated] = useState(false);
 
-    const [logged, setLogged] = useState(token? true :false);
-    
-    const loginUser = async () =>{
+    const loginUser = async () => {
         const user = document.querySelector('#user').value;
         const pass = document.querySelector('#password').value;
-        
-        const resp = await logar(user,pass);
-        setLogged(resp);
-        console.log(logged);
-    }
-    
 
-    return(
-        <div className="main-container">      
+        const resp = await logar(user, pass);
+
+        setTokenValidated(true);
+        setLogged(resp);
+    }
+
+    useEffect(() => {
+        const validate = async () => {
+            const token = sessionStorage.getItem('cyber/token');
+
+            if (token) {
+                const isValid = await validateToken(token);
+                setTokenValidated(isValid);
+                setLogged(isValid);
+            }
+        }
+        validate()
+    }, [logged]);
+
+    return (
+        <div className="main-container">
             {!logged && <LoginPage login={loginUser} />}
-            {logged && <App />}
+            {logged && tokenValidated && <App />}
         </div>
     )
 }

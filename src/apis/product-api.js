@@ -4,7 +4,7 @@ async function getProducts(urlRequest, token) {
         headers: new Headers(
             { 'Token': token }
         )
-    })
+    });
     const dataModel = await data.json();
     return dataModel;
 }
