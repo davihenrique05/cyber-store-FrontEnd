@@ -8,7 +8,8 @@ function ProductsPage(){
 
     useEffect( ()=>{
         const getListOfProducts = async() => {
-            const products = await getProducts("all-products");
+            const token = sessionStorage.getItem('cyber/token');
+            const products = await getProducts("all-products",token);
 
             setList(products);
             setResponded(true);

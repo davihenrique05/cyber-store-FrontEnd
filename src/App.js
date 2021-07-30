@@ -5,8 +5,6 @@ import ProductsPage from './pages/product';
 import ContactPage from './pages/contact/contact';
 
 function App() {
-
-
     return(
     <Router>
         <Hero/>

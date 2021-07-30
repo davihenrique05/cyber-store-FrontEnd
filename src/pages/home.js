@@ -10,7 +10,8 @@ function Home() {
 
   useEffect( ()=>{
     const getListOfProducts = async() => {
-        const products = await getProducts("new-products")
+        const token = sessionStorage.getItem('cyber/token');
+        const products = await getProducts("new-products", token)
 
         setList(products);
         setResponded(true);
