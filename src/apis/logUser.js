@@ -1,6 +1,6 @@
 module.exports = {
   logar: async function (user, pass) {
-    const data = await fetch(`http://localhost:3001/login`, {
+    const data = await fetch(`${process.env.REACT_APP_HOST}/login`, {
       method: 'POST',
       headers: new Headers({
         'Authorization': JSON.stringify({ username: user, password: pass }),
@@ -12,7 +12,7 @@ module.exports = {
     return response.response;
   },
   validateToken: async function (token) {
-    const data = await fetch(`http://localhost:3001/validateToken`, {
+    const data = await fetch(`${process.env.REACT_APP_HOST}validateToken`, {
       method: 'POST',
       headers: new Headers(
         { 'Token': token }
